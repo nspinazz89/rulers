@@ -1,8 +1,12 @@
+# rulers/lib/rulers/routing.rb
+
 module Rulers
   class Application
     def get_controller_and_action(env)
       _, cont, action, after = env["PATH_INFO"].split('/', 4)
-      cont = "#{cont.capitalize}Controller"
+      cont = cont.capitalize
+      cont += "Controller"
+
       [Object.const_get(cont), action]
     end
   end

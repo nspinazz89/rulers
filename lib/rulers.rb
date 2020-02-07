@@ -4,11 +4,10 @@ require "rulers/routing"
 module Rulers
   class Application
     def call(env)
-      `echo debug > debug.txt`;
-      klass, act = get_controller_action(env)
+      klass, act = get_controller_and_action(env)
       controller = klass.new(env)
       text = controller.send(act)
-      [200, { 'Content-Type' => 'text/html' }, [text]]
+      [200, {'Content-Type' => 'text/html'}, [text]]
     end
   end
 

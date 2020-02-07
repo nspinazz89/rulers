@@ -17,4 +17,5 @@ class RulersAppTest < Test::Unit::TestCase
     body = last_response.body
     assert body["Hello"]
   end
+
 end
